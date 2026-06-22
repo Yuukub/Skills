@@ -1,16 +1,58 @@
 ---
 name: diagnosing-bugs
-description: Use when diagnosing the cause of a bug, broken behavior, failing test, flaky issue, wrong output, runtime error, slow performance, or regression. Do not use for ordinary feature work or simple refactoring without a reported failure.
------------------------------------------------------------------------------------------------------------------------------
+description: "Use when diagnosing bugs, broken behavior, failing tests, flaky issues, wrong output, runtime errors, slow performance, or regressions. Do not use for normal feature work."
+---
 
 # Diagnosing Bugs
 
 Use this skill when debugging hard bugs or performance regressions.
 
-Core rule: **build a feedback loop before guessing.**
+Core rule: **build a feedback loop before guessing.**  
 A fix is not trusted until the original bug can be reproduced, fixed, and verified.
 
 Before touching code, read `CONTEXT.md` if it exists. Also check nearby README files, ADRs, and test conventions.
+
+---
+
+## When to use this skill
+
+Use this skill when the task is about finding the cause of a problem.
+
+Use it for:
+
+- bug reports
+- broken features
+- runtime errors or exceptions
+- failing tests
+- flaky or intermittent issues
+- wrong output
+- slow pages, APIs, jobs, or queries
+- regressions after deploy, refactor, migration, dependency update, or config change
+
+Typical user phrases:
+
+- "debug this"
+- "diagnose this"
+- "find the root cause"
+- "why is this failing?"
+- "this used to work"
+- "it is slow"
+- "sometimes it fails"
+- "fix this bug"
+
+## When not to use this skill
+
+Do not use this skill for normal implementation tasks where there is no reported failure.
+
+Do not use it for:
+
+- adding a new feature from scratch
+- simple refactoring
+- formatting or renaming code
+- writing documentation
+- explaining code
+- UI copy changes
+- dependency upgrades with no known failure
 
 ---
 
