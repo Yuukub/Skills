@@ -1,5 +1,4 @@
 ---
-
 name: diagnosing-bugs
 description: Use when diagnosing the cause of a bug, broken behavior, failing test, flaky issue, wrong output, runtime error, slow performance, or regression. Do not use for ordinary feature work or simple refactoring without a reported failure.
 -----------------------------------------------------------------------------------------------------------------------------
