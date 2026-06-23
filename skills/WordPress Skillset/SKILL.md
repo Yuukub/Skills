@@ -1,6 +1,6 @@
 ---
 name: Modern WordPress Development Standard Skill set (2026)
-description: ช่วยสร้าง plugin Themes ที่ปลอดภัยเป็นมาตรฐาน สำหรับเว็บ WordPress
+description: ช่วยสร้าง plugin และ themes ที่ปลอดภัย เป็นมาตรฐาน โหลดไว และผ่านเกณฑ์ High-Performance สำหรับเว็บ WordPress
 ---
 
 # WordPress Development Standard Skill set
@@ -31,8 +31,19 @@ Act as a Senior WordPress Developer focusing on High-Performance, Secure, and Sc
   - ห้ามใช้ `ORDER BY RAND()` เด็ดขาด
   - ใช้ **Object Cache** (`wp_cache_get`, `wp_cache_set`) สำหรับลดภาระการคิวรีฐานข้อมูลซ้ำซ้อน
 - **Asset Loading:**
-  - โหลด Scripts และ Styles เฉพาะในหน้าเว็บที่จำเป็นต้องใช้เท่านั้น (Conditional Enqueueing)
+  - โหลด Scripts และ Styles เฉพาะในหน้าเว็บที่จำเป็นต้องใช้เท่านั้น (Conditional Enqueuing)
   - ใช้ `strategy => 'defer'` หรือ `'async'` เมื่อใช้ `wp_enqueue_script` เพื่อไม่ให้บล็อกการแสดงผลของหน้าเว็บ (Render-blocking)
+
+### 3.1 Feature-Based Asset Splitting / Modular Bundling
+สำหรับปลั๊กอินหรือธีมที่มีมากกว่า 3 ฟีเจอร์หลัก ห้ามใช้ Monolithic Asset เช่น `admin.js`, `admin.css`, `frontend.js`, `frontend.css` ที่แบกหลายฟีเจอร์แล้วโหลดทั่วระบบ ให้ถือว่าไม่ผ่านเกณฑ์ High-Performance
+
+- ต้องใช้ **Multi-Entry Points** แยกตามฟีเจอร์/โมดูล ไม่ใช่แค่ `admin` กับ `frontend`
+- หลังบ้านต้อง Enqueue เฉพาะหน้าที่ตรงกับ `$hook_suffix`, Screen ID หรือหน้าของปลั๊กอินนั้น
+- หน้าบ้านต้อง Enqueue เฉพาะเมื่อมี Component, Shortcode, Block, Widget หรือ Template Part ที่ใช้งานจริง
+- Gutenberg Block ต้องแยก asset ตาม `block.json` ให้ถูกบริบท (`editorScript`, `script`, `viewScript`, `style`, `editorStyle`)
+- Shared/vendor chunk ต้องเล็กและใช้ร่วมจริง ห้ามกลายเป็น monolith แฝง
+- ฟีเจอร์ที่เปิดใช้หลัง interaction เช่น modal, chart, media picker หรือ advanced panel ควร lazy load/dynamic import
+- ก่อนส่งมอบ ต้องสรุป asset map ว่าแต่ละ entry โหลดในหน้า/ฟีเจอร์ใด และถ้ายังมีแค่ `admin` กับ `frontend` ในปลั๊กอินใหญ่ ต้องแตก entry ก่อน
 
 ## 4. Modern PHP & Architecture
 - **PHP 8.2+:** ใช้ Strict Typing, Return Types และหลีกเลี่ยงการใช้ฟังก์ชันที่ถูก Deprecated แล้วใน PHP และ WordPress เวอร์ชันล่าสุด
