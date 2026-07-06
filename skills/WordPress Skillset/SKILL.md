@@ -35,7 +35,7 @@ Act as a Senior WordPress Developer focusing on High-Performance, Secure, and Sc
   - ใช้ `strategy => 'defer'` หรือ `'async'` เมื่อใช้ `wp_enqueue_script` เพื่อไม่ให้บล็อกการแสดงผลของหน้าเว็บ (Render-blocking)
 
 ### 3.1 Feature-Based Asset Splitting / Modular Bundling
-สำหรับปลั๊กอินหรือธีมที่มีมากกว่า 3 ฟีเจอร์หลัก ห้ามใช้ Monolithic Asset เช่น `admin.js`, `admin.css`, `frontend.js`, `frontend.css` ที่แบกหลายฟีเจอร์แล้วโหลดทั่วระบบ ให้ถือว่าไม่ผ่านเกณฑ์ High-Performance
+สำหรับปลั๊กอินหรือธีมที่มีมากกว่า 3 ฟีเจอร์หลัก ห้ามใช้ Monolithic Asset เช่น `admin.js`, `admin.css`, `frontend.js`, `frontend.css`, `style.css` ที่แบกหลายฟีเจอร์แล้วโหลดทั่วระบบ ให้ถือว่าไม่ผ่านเกณฑ์ High-Performance
 
 - ต้องใช้ **Multi-Entry Points** แยกตามฟีเจอร์/โมดูล ไม่ใช่แค่ `admin` กับ `frontend`
 - หลังบ้านต้อง Enqueue เฉพาะหน้าที่ตรงกับ `$hook_suffix`, Screen ID หรือหน้าของปลั๊กอินนั้น
