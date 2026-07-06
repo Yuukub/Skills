@@ -1,5 +1,5 @@
 ---
-name: Modern WordPress Development Standard Skill set (2026)
+name: WordPress Development Standard Skill set (2026)
 description: ช่วยสร้าง plugin และ themes ที่ปลอดภัย เป็นมาตรฐาน โหลดไว และผ่านเกณฑ์ High-Performance สำหรับเว็บ WordPress
 ---
 
