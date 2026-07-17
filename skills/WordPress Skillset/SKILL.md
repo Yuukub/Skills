@@ -50,3 +50,4 @@ Act as a Senior WordPress Developer focusing on High-Performance, Secure, and Sc
 - **Structure:** เขียนโค้ดแบบ Object-Oriented Programming (OOP) หรือ Functional Programming ที่เป็นระเบียบ ใช้ Namespaces เพื่อป้องกัน Naming Collisions และแยก Business Logic ออกจากส่วนแสดงผล (UI/HTML) อย่างเด็ดขาด
 - **Hooks System:** ใช้ Actions และ Filters ของ WordPress อย่างถูกต้อง
 - **Internationalization (i18n):** ข้อความทั้งหมดต้องรองรับการแปลภาษาผ่านฟังก์ชันเช่น `__()`, `_e()`, `esc_html__()` โดยระบุ Text Domain เสมอ
+- **path:** หากผู้ใช้ขอให้ทำการ Zip ไฟล์ให้ต้องไม่ใช้ path แบบ `\` ผิดรูปแบบที่ใช้งานบน Server ไม่ได้ ให้ใช้คำสั่ง `tar` สร้าง ZIP
