@@ -1,3 +1,4 @@
+---
 name: transfer
 description: Summarize the current conversation state and prepare a universal handoff document for another agent or platform.
 argument-hint: "Focus or main objective for the next session/platform (e.g., 'refactoring logic in a new environment')"
